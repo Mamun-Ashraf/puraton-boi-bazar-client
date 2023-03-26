@@ -1,0 +1,40 @@
+[
+    {
+        "id": 1,
+        "categoryName": "Poems",
+        "category-img": "",
+        "location": "",
+        "resale-price": "10",
+        "original-price": "20",
+        "using-time": "1",
+        "post-time": ""
+    },
+    {
+        "id": 2,
+        "categoryName": "Story"
+    },
+    {
+        "id": 3,
+        "categoryName": "Novel"
+    },
+    {
+        "id": 4,
+        "categoryName": "Drama"
+    },
+    {
+        "id": 5,
+        "categoryName": "Biography"
+    },
+    {
+        "id": 6,
+        "categoryName": "Travel Books"
+    },
+    {
+        "id": 7,
+        "categoryName": "Science Fiction"
+    },
+    {
+        "id": 8,
+        "categoryName": "Islamic"
+    }
+]
