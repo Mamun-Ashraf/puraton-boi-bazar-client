@@ -1,40 +1,522 @@
 [
     {
-        "id": 1,
         "categoryName": "Poems",
-        "category-img": "",
-        "location": "",
-        "resale-price": "10",
-        "original-price": "20",
-        "using-time": "1",
-        "post-time": ""
+        "categoryBooks": [
+            {
+                "bookName": "Notun Chad",
+                "bookImage": "https://i.ibb.co/8d6Bsvy/Notun-Chad.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Bisher Bashi",
+                "bookImage": "https://i.ibb.co/TYny762/Bisher-Bashi.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Agnibeena",
+                "bookImage": "https://i.ibb.co/pZprqyb/Agnibeena.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Mrittu Khuda",
+                "bookImage": "https://i.ibb.co/rmFHNCq/Mritu-Khoda.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Bethar Dan",
+                "bookImage": "https://i.ibb.co/PYSM8Zq/Bethar-Dan.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Sanchita",
+                "bookImage": "https://i.ibb.co/1LQxFPL/Sanchita.webp",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            }
+        ]
     },
     {
-        "id": 2,
-        "categoryName": "Story"
+        "categoryName": "Story",
+        "categoryBooks": [
+            {
+                "bookName": "Notun Chad",
+                "bookImage": "https://i.ibb.co/8d6Bsvy/Notun-Chad.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Bisher Bashi",
+                "bookImage": "https://i.ibb.co/TYny762/Bisher-Bashi.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Agnibeena",
+                "bookImage": "https://i.ibb.co/pZprqyb/Agnibeena.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Mrittu Khuda",
+                "bookImage": "https://i.ibb.co/rmFHNCq/Mritu-Khoda.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Bethar Dan",
+                "bookImage": "https://i.ibb.co/PYSM8Zq/Bethar-Dan.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Sanchita",
+                "bookImage": "https://i.ibb.co/1LQxFPL/Sanchita.webp",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            }
+        ]
     },
     {
-        "id": 3,
-        "categoryName": "Novel"
+        "categoryName": "Novel",
+        "categoryBooks": [
+            {
+                "bookName": "Notun Chad",
+                "bookImage": "https://i.ibb.co/8d6Bsvy/Notun-Chad.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Bisher Bashi",
+                "bookImage": "https://i.ibb.co/TYny762/Bisher-Bashi.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Agnibeena",
+                "bookImage": "https://i.ibb.co/pZprqyb/Agnibeena.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Mrittu Khuda",
+                "bookImage": "https://i.ibb.co/rmFHNCq/Mritu-Khoda.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Bethar Dan",
+                "bookImage": "https://i.ibb.co/PYSM8Zq/Bethar-Dan.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Sanchita",
+                "bookImage": "https://i.ibb.co/1LQxFPL/Sanchita.webp",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            }
+        ]
     },
     {
-        "id": 4,
-        "categoryName": "Drama"
+        "categoryName": "Drama",
+        "categoryBooks": [
+            {
+                "bookName": "Notun Chad",
+                "bookImage": "https://i.ibb.co/8d6Bsvy/Notun-Chad.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Bisher Bashi",
+                "bookImage": "https://i.ibb.co/TYny762/Bisher-Bashi.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Agnibeena",
+                "bookImage": "https://i.ibb.co/pZprqyb/Agnibeena.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Mrittu Khuda",
+                "bookImage": "https://i.ibb.co/rmFHNCq/Mritu-Khoda.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Bethar Dan",
+                "bookImage": "https://i.ibb.co/PYSM8Zq/Bethar-Dan.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Sanchita",
+                "bookImage": "https://i.ibb.co/1LQxFPL/Sanchita.webp",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            }
+        ]
     },
     {
-        "id": 5,
-        "categoryName": "Biography"
+        "categoryName": "Biography",
+        "categoryBooks": [
+            {
+                "bookName": "Notun Chad",
+                "bookImage": "https://i.ibb.co/8d6Bsvy/Notun-Chad.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Bisher Bashi",
+                "bookImage": "https://i.ibb.co/TYny762/Bisher-Bashi.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Agnibeena",
+                "bookImage": "https://i.ibb.co/pZprqyb/Agnibeena.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Mrittu Khuda",
+                "bookImage": "https://i.ibb.co/rmFHNCq/Mritu-Khoda.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Bethar Dan",
+                "bookImage": "https://i.ibb.co/PYSM8Zq/Bethar-Dan.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Sanchita",
+                "bookImage": "https://i.ibb.co/1LQxFPL/Sanchita.webp",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            }
+        ]
     },
     {
-        "id": 6,
-        "categoryName": "Travel Books"
+        "categoryName": "Travel Books",
+        "categoryBooks": [
+            {
+                "bookName": "Notun Chad",
+                "bookImage": "https://i.ibb.co/8d6Bsvy/Notun-Chad.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Bisher Bashi",
+                "bookImage": "https://i.ibb.co/TYny762/Bisher-Bashi.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Agnibeena",
+                "bookImage": "https://i.ibb.co/pZprqyb/Agnibeena.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Mrittu Khuda",
+                "bookImage": "https://i.ibb.co/rmFHNCq/Mritu-Khoda.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Bethar Dan",
+                "bookImage": "https://i.ibb.co/PYSM8Zq/Bethar-Dan.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Sanchita",
+                "bookImage": "https://i.ibb.co/1LQxFPL/Sanchita.webp",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            }
+        ]
     },
     {
-        "id": 7,
-        "categoryName": "Science Fiction"
+        "categoryName": "Science Fiction",
+        "categoryBooks": [
+            {
+                "bookName": "Notun Chad",
+                "bookImage": "https://i.ibb.co/8d6Bsvy/Notun-Chad.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Bisher Bashi",
+                "bookImage": "https://i.ibb.co/TYny762/Bisher-Bashi.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Agnibeena",
+                "bookImage": "https://i.ibb.co/pZprqyb/Agnibeena.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Mrittu Khuda",
+                "bookImage": "https://i.ibb.co/rmFHNCq/Mritu-Khoda.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Bethar Dan",
+                "bookImage": "https://i.ibb.co/PYSM8Zq/Bethar-Dan.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Sanchita",
+                "bookImage": "https://i.ibb.co/1LQxFPL/Sanchita.webp",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            }
+        ]
     },
     {
-        "id": 8,
-        "categoryName": "Islamic"
+        "categoryName": "Islamic",
+        "categoryBooks": [
+            {
+                "bookName": "Notun Chad",
+                "bookImage": "https://i.ibb.co/8d6Bsvy/Notun-Chad.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Bisher Bashi",
+                "bookImage": "https://i.ibb.co/TYny762/Bisher-Bashi.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Agnibeena",
+                "bookImage": "https://i.ibb.co/pZprqyb/Agnibeena.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Mrittu Khuda",
+                "bookImage": "https://i.ibb.co/rmFHNCq/Mritu-Khoda.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Bethar Dan",
+                "bookImage": "https://i.ibb.co/PYSM8Zq/Bethar-Dan.jpg",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            },
+            {
+                "bookName": "Sanchita",
+                "bookImage": "https://i.ibb.co/1LQxFPL/Sanchita.webp",
+                "sellersName": "Sifat",
+                "sellersLocation": "38/A, Nilkhet, Dhaka",
+                "resalePrice": "10",
+                "originalPrice": "20",
+                "usingYears": "1",
+                "postingTime": ""
+            }
+        ]
     }
 ]

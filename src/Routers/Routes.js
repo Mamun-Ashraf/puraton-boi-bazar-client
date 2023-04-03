@@ -4,6 +4,7 @@ import Blog from "../Pages/Blog/Blog";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Shared/Login/Login";
 import Signup from "../Pages/Shared/SignUp/Signup";
+import Books from "../Pages/Books/Books";
 
 const router = createBrowserRouter([
     {
@@ -13,6 +14,11 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/category/:id',
+                element: <Books></Books>,
+                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
             },
             {
                 path: '/blog',
