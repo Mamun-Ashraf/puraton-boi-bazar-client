@@ -3,15 +3,15 @@ import { createContext } from 'react';
 import { getAuth } from 'firebase/auth';
 import app from '../firebase/firebase.config';
 
-export const AuthContex = createContext();
+export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const Authprovider = ({ children }) => {
     const authInfo = {};
     return (
-        <AuthContex.Authprovider value={authInfo}>
+        <AuthContext.Provider value={authInfo}>
             {children}
-        </AuthContex.Authprovider>
+        </AuthContext.Provider>
     );
 };
 
