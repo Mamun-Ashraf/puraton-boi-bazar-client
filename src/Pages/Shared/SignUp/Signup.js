@@ -21,12 +21,12 @@ const Signup = () => {
                             <label className="label"><span className="label-text">Email</span></label>
                             <input type="text" {...register("email")} className="input input-bordered w-full" />
                         </div>
-                        <div className="form-control w-full">
+                        <div className="form-control w-full mb-3">
                             <label className="label"><span className="label-text">Password</span></label>
                             <input type="password" {...register("password")} className="input input-bordered w-full" />
                         </div>
                         <input className='btn w-full' value='Sign Up' type="submit" />
-                        <p>Already have an account?<Link to='/login' className='text-blue-500'>Please login</Link></p>
+                        <p>Already have an account? <Link to='/login' className='text-blue-500'>Please login</Link></p>
                         <div className="divider">OR</div>
                         <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
                     </form>

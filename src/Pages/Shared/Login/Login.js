@@ -28,7 +28,7 @@ const Login = () => {
                             <label className="label"><span className="label-text">Forget Password?</span></label>
                         </div>
                         <input className='btn w-full' value='Login' type="submit" />
-                        <p>New User?<Link to='/signup' className='text-blue-500'>Register here</Link></p>
+                        <p>New User? <Link to='/signup' className='text-blue-500'>Register here</Link></p>
                         <div className="divider">OR</div>
                         <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
                     </form>
