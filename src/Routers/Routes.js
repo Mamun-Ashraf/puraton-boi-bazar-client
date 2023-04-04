@@ -5,6 +5,7 @@ import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Shared/Login/Login";
 import Signup from "../Pages/Shared/SignUp/Signup";
 import Books from "../Pages/Books/Books";
+import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
                 element: <Signup></Signup>
             }
         ]
+    },
+    {
+        path: '*',
+        element: <PageNotFound></PageNotFound>
     }
 ])
 export default router;
