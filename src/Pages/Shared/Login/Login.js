@@ -5,7 +5,7 @@ import login from '../../../Assets/login.jpg';
 
 const Login = () => {
 
-    const { register, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit } = useForm();
     const handleLogin = data => {
         console.log(data);
     }
@@ -20,11 +20,22 @@ const Login = () => {
                     <form onSubmit={handleSubmit(handleLogin)}>
                         <div className="form-control w-full">
                             <label className="label"><span className="label-text">Email</span></label>
-                            <input type="text" {...register("email")} className="input input-bordered w-full" />
+                            <input type="text" {...register("email",
+                                {
+                                    required: "Email Address is required"
+                                })}
+                                className="input input-bordered w-full" />
+                            {errors.email && <p className='text-red-500' role="alert">{errors.email?.message}</p>}
                         </div>
                         <div className="form-control w-full">
                             <label className="label"><span className="label-text">Password</span></label>
-                            <input type="password" {...register("password")} className="input input-bordered w-full" />
+                            <input type="password" {...register("password",
+                                {
+                                    required: "Password is required",
+                                    minLength: { value: 6, message: 'password must be at least 6 characters or longer' }
+                                })}
+                                className="input input-bordered w-full" />
+                            {errors.password && <p className='text-red-500' role="alert">{errors.password?.message}</p>}
                             <label className="label"><span className="label-text">Forget Password?</span></label>
                         </div>
                         <input className='btn w-full' value='Login' type="submit" />
