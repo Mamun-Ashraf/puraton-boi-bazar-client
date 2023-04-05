@@ -14,7 +14,7 @@ const Book = ({ categoryBook }) => {
                 <p className='text-lg'>Years of Use: {usingYears}</p>
                 <p className='text-lg'>Time at posted: {postingTime}</p>
                 <div className="card-actions justify-center">
-                    <button className="btn btn-primary">Book Now</button>
+                    <label htmlFor="buying-modal" className="btn btn-accent">Buy Now</label>
                 </div>
             </div>
         </div>
