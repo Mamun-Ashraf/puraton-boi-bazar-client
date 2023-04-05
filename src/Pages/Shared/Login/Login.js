@@ -1,18 +1,32 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import login from '../../../Assets/login.jpg';
+import security from '../../../Assets/security.jpg';
+import { AuthContext } from '../../../Contexts/Authprovider';
 
 const Login = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const { login } = useContext(AuthContext);
+    const [loginError, setLoginError] = useState('');
+
     const handleLogin = data => {
+        setLoginError('');
         console.log(data);
+        login(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.log(error.message)
+                setLoginError(error.message)
+            })
     }
     return (
         <div className='flex items-center'>
             <div className='w-1/2'>
-                <img src={login} alt='' className='hidden md:block' />
+                <img src={security} alt='' className='hidden md:block' />
             </div>
             <div className='h-[800px] flex justify-center items-center'>
                 <div className='w-96 p-7  bg-green-300 rounded'>
@@ -20,7 +34,7 @@ const Login = () => {
                     <form onSubmit={handleSubmit(handleLogin)}>
                         <div className="form-control w-full">
                             <label className="label"><span className="label-text">Email</span></label>
-                            <input type="text" {...register("email",
+                            <input type="email" {...register("email",
                                 {
                                     required: "Email Address is required"
                                 })}
@@ -39,10 +53,13 @@ const Login = () => {
                             <label className="label"><span className="label-text">Forget Password?</span></label>
                         </div>
                         <input className='btn w-full' value='Login' type="submit" />
-                        <p>New User? <Link to='/signup' className='text-blue-500'>Register here</Link></p>
-                        <div className="divider">OR</div>
-                        <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                        <div>
+                            {loginError && <p className='text-red-500'>{loginError}</p>}
+                        </div>
                     </form>
+                    <p>New User? <Link to='/signup' className='text-blue-500'>Register here</Link></p>
+                    <div className="divider">OR</div>
+                    <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
                 </div>
             </div>
         </div>
