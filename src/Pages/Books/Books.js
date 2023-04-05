@@ -12,7 +12,7 @@ const Books = () => {
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
                     categoryBooks.map(categoryBook => <Book
-                        key={_id}
+                        key={categoryBook.idx}
                         categoryBook={categoryBook}
                     ></Book>)
                 }

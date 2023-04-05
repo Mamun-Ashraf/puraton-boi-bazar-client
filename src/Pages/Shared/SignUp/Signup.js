@@ -8,7 +8,7 @@ import { toast } from 'react-hot-toast';
 const Signup = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { createUser, updateUser } = useContext(AuthContext);
+    const { createUser, updateUser, signInWithGoogle } = useContext(AuthContext);
     const [signupError, setSignupError] = useState('');
 
     const handleSignup = data => {
@@ -32,6 +32,16 @@ const Signup = () => {
 
             });
     }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(err => console.error(err))
+    }
+
     return (
         <div className='flex items-center'>
             <div className='w-1/2'>
@@ -76,7 +86,7 @@ const Signup = () => {
                     </form>
                     <p>Already have an account? <Link to='/login' className='text-blue-500'>Please login</Link></p>
                     <div className="divider">OR</div>
-                    <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                    <button onClick={handleGoogleSignIn} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
                 </div>
             </div>
         </div>
