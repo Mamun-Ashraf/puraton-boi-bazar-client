@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Contexts/Authprovider';
 import { Navigate, useLocation } from 'react-router-dom';
+import Loading from '../Pages/Shared/Loading/Loading';
 
 const PrivateRoutes = ({ children }) => {
 
@@ -8,7 +9,7 @@ const PrivateRoutes = ({ children }) => {
     const location = useLocation();
 
     if (loading) {
-        return <progress className="progress w-56"></progress>
+        return <Loading></Loading>
     }
 
     if (user) {

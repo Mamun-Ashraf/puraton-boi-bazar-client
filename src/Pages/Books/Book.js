@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Book = ({ categoryBook }) => {
+const Book = ({ categoryBook, setBookItems }) => {
     const { bookName, bookImage, sellersName, sellersLocation, resalePrice, originalPrice, usingYears, postingTime } = categoryBook;
     return (
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
@@ -14,7 +14,11 @@ const Book = ({ categoryBook }) => {
                 <p className='text-lg'>Years of Use: {usingYears}</p>
                 <p className='text-lg'>Time at posted: {postingTime}</p>
                 <div className="card-actions justify-center">
-                    <label htmlFor="buying-modal" className="btn btn-accent">Buy Now</label>
+                    <label
+                        htmlFor="buying-modal"
+                        className="btn btn-accent"
+                        onClick={() => setBookItems(categoryBook)}
+                    >Book Now</label>
                 </div>
             </div>
         </div>
