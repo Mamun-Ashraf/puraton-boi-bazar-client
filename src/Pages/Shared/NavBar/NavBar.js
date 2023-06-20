@@ -15,12 +15,16 @@ const NavBar = () => {
     const menuItems = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
+        <li><Link to='/buyer'>Buyer</Link></li>
+        <li><Link to='/seller'>Seller</Link></li>
+        <li><Link to='/dashboard'>Dashboard</Link></li>
         {
             user?.uid ?
                 <li><button onClick={handleLogOut}>Log Out</button></li>
                 :
                 <li><Link to='/login'>Login</Link></li>
         }
+        <li><Link to='/signup'>Sign Up</Link></li>
 
     </React.Fragment>
     return (
