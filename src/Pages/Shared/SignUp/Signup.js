@@ -1,19 +1,19 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import security from '../../../Assets/security.jpg';
 import { AuthContext } from '../../../Contexts/Authprovider';
 import { toast } from 'react-hot-toast';
 
 const Signup = () => {
-
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { createUser, updateUser, signInWithGoogle } = useContext(AuthContext);
+    const { createUser, updateUser, signInWithGoogle, userType } = useContext(AuthContext);
     const [signupError, setSignupError] = useState('');
+
+    const navigate = useNavigate();
 
     const handleSignup = data => {
         setSignupError('');
-        console.log(data);
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
@@ -23,7 +23,9 @@ const Signup = () => {
                     displayName: data.name
                 }
                 updateUser(userInfo)
-                    .then(() => { })
+                    .then(() => {
+                        saveUser(data.name, data.email, userType)
+                    })
                     .catch(err => console.log(err))
             })
             .catch(error => {
@@ -31,6 +33,32 @@ const Signup = () => {
                 setSignupError(error.message);
 
             });
+    }
+
+    const saveUser = (name, email, userType) => {
+        const user = { name, email, userType };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                getUserToken(email);
+            })
+    }
+
+    const getUserToken = email => {
+        fetch(`http://localhost:5000/jwt?email=${email}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.accessToken) {
+                    localStorage.setItem('accessToken', data.accessToken);
+                    navigate('/');
+                }
+            })
     }
 
     const handleGoogleSignIn = () => {

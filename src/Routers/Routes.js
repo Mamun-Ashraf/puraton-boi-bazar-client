@@ -15,6 +15,10 @@ import MyBuyers from "../Pages/Dashboard/MyBuyers/MyBuyers";
 import AllSellers from "../Pages/Dashboard/AllSellers/AllSellers";
 import AllBuyers from "../Pages/Dashboard/AllBuyers/AllBuyers";
 import CreateAccount from "../Pages/Shared/SignUp/CreateAccount";
+import BuyersRoute from "./BuyersRoute";
+import SellersRoute from "./SellersRoute";
+import AdminsRoute from "./AdminsRoute";
+import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
 
 const router = createBrowserRouter([
     {
@@ -39,9 +43,12 @@ const router = createBrowserRouter([
                 element: <Login></Login>
             },
             {
-                path: '/signup',
-                // element: <Signup></Signup>
+                path: '/createaccount',
                 element: <CreateAccount></CreateAccount>
+            },
+            {
+                path: '/signup',
+                element: <Signup></Signup>
             }
         ]
     },
@@ -51,27 +58,31 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard/myorders',
-                element: <MyOrders></MyOrders>
+                element: <BuyersRoute><MyOrders></MyOrders></BuyersRoute>
             },
             {
                 path: '/dashboard/addproduct',
-                element: <AddProducts></AddProducts>
+                element: <SellersRoute><AddProducts></AddProducts></SellersRoute>
             },
             {
                 path: '/dashboard/myproducts',
-                element: <MyProducts></MyProducts>
+                element: <SellersRoute><MyProducts></MyProducts></SellersRoute>
             },
             {
                 path: '/dashboard/mybuyers',
-                element: <MyBuyers></MyBuyers>
+                element: <SellersRoute><MyBuyers></MyBuyers></SellersRoute>
             },
             {
                 path: '/dashboard/allsellers',
-                element: <AllSellers></AllSellers>
+                element: <AdminsRoute><AllSellers></AllSellers></AdminsRoute>
             },
             {
                 path: '/dashboard/allbuyers',
-                element: <AllBuyers></AllBuyers>
+                element: <AdminsRoute><AllBuyers></AllBuyers></AdminsRoute>
+            },
+            {
+                path: '/dashboard/makeadmin',
+                element: <AdminsRoute><MakeAdmin></MakeAdmin></AdminsRoute>
             }
         ]
 

@@ -1,24 +1,39 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/Authprovider';
 
 const CreateAccount = () => {
 
-    const [userType, setUserType] = useState('');
-    const handleUserType = event => {
-        const type = event.target.value;
-        setUserType(type);
-    }
+    const { handleUserType, userType } = useContext(AuthContext);
 
     return (
-        <div>
-            <p className="text-2xl font-bold">Join as a Buyer or Seller
-                <label className="mx-5 fs-6 fw-normal" htmlFor="userTypeBuyer"><input type="radio" name="userType"
-                    id="userTypeBuyer" value="Buyer" checked={userType === "Buyer"} onChange={handleUserType} /> Buyer</label>
-                <label className="fs-6 fw-normal" htmlFor="userTypeSeller"><input type="radio" name="userType"
-                    id="userTypeSeller" value="Seller" checked={userType === "Seller"} onChange={handleUserType} /> Seller</label>
-            </p>
+        <div className='border rounded-lg w-[700px] h-[300px] m-auto text-center'>
+            <p className="text-2xl font-bold my-5">Join as a Buyer or Seller</p>
+
+            <div className='grid grid-cols-2 gap-10 h-32 text-xl font-semibold'>
+                <div className="border rounded-lg ml-5 text-center">
+                    <input type="radio" name="userType"
+                        id="userTypeBuyer" value="Buyer" checked={userType === "Buyer"} onChange={handleUserType} />
+                    <label className='block' htmlFor="userTypeBuyer">I am a Buyer, looking for some books</label>
+                </div>
+                <div className="border rounded-lg mr-5">
+                    <input type="radio" name="userType"
+                        id="userTypeSeller" value="Seller" checked={userType === "Seller"} onChange={handleUserType} />
+                    <label className='block' htmlFor="userTypeSeller">I am a Seller, seeking for buyers</label>
+                </div>
+            </div>
 
             <div>
-                {/* <button className="btn btn-primary">Button</button> */}
+                {
+                    userType ?
+                        <Link to={'/signup'}>
+                            <button className="mt-5 btn btn-primary">
+                                Join as a {userType}
+                            </button>
+                        </Link>
+                        :
+                        <button className='btn btn-disabled mt-5'>Create Account</button>
+                }
             </div>
         </div>
     );
