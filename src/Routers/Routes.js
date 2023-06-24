@@ -19,6 +19,7 @@ import BuyersRoute from "./BuyersRoute";
 import SellersRoute from "./SellersRoute";
 import AdminsRoute from "./AdminsRoute";
 import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
+import ReportedItems from "../Pages/Dashboard/ReportedItems/ReportedItems";
 
 const router = createBrowserRouter([
     {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/makeadmin',
                 element: <AdminsRoute><MakeAdmin></MakeAdmin></AdminsRoute>
+            },
+            {
+                path: '/dashboard/reporteditems',
+                element: <AdminsRoute><ReportedItems></ReportedItems></AdminsRoute>
             }
         ]
 
