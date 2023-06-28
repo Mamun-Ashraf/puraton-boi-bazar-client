@@ -1,57 +1,88 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/Authprovider';
+import { useQuery } from '@tanstack/react-query';
+import Loading from '../../Shared/Loading/Loading';
+import { toast } from 'react-hot-toast';
 
 const AddProducts = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [addBookError, setAddBookError] = useState('');
-
-
+    const { user } = useContext(AuthContext);
+    const { displayName, email } = user;
     const navigate = useNavigate();
+    const imageHostKey = process.env.REACT_APP_imgbb_key;
+
+    const { data: categoriesTitle = [], isLoading } = useQuery({
+        queryKey: ['categoryTitle'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/categoryTitle');
+            const data = await res.json();
+            return data;
+        }
+    })
 
     const handleAddBook = data => {
-        const { bookname, originalprice, resaleprice, conditiontype, mobilenumber, location, category, description, purchaseyear, sellersname } = data;
 
-        fetch(`http://localhost:5000/categoryBook/${category}`)
+        const { bookname, originalprice, resaleprice, conditiontype, mobilenumber, location, category, description, purchaseyear, sellersname, email } = data;
+
+        const image = data.bookImage[0];
+        const formData = new FormData();
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
             .then(res => res.json())
-            .then(data => {
-                const bookApi = data.categoryBooks;
-                const bookCategories = {
-                    bookName: bookname,
-                    bookImage: "",
-                    sellersName: sellersname,
-                    sellersLocation: location,
-                    resalePrice: resaleprice,
-                    originalPrice: originalprice,
-                    usingYears: purchaseyear,
-                    postingTime: "",
-                    conditiontype,
-                    mobilenumber,
-                    description
+            .then(imgData => {
+                if (imgData.success) {
+                    const bookCategories = {
+                        bookName: bookname,
+                        bookImage: imgData.data.url,
+                        sellersName: sellersname,
+                        sellersEmail: email,
+                        sellersLocation: location,
+                        resalePrice: resaleprice,
+                        originalPrice: originalprice,
+                        usingYears: purchaseyear,
+                        postingTime: "",
+                        conditiontype,
+                        mobilenumber,
+                        description
+                    }
+                    fetch(`http://localhost:5000/categoryBook/${category}`)
+                        .then(res => res.json())
+                        .then(result => {
+                            const bookApi = result.categoryBooks;
+                            fetch(`http://localhost:5000/category/${category}`, {
+                                method: 'PUT',
+                                headers: {
+                                    'content-type': 'application/json'
+                                },
+                                body: JSON.stringify([...bookApi, bookCategories])
+                            })
+                                .then(res => res.json())
+                                .then(data => {
+                                    toast.success('Book added successfully');
+                                    navigate('/dashboard/myproducts');
+                                })
+
+                                .catch(error => {
+                                    setAddBookError(error.message);
+
+                                });
+                        })
+
                 }
-
-                setAddBookError('');
-
-                fetch(`http://localhost:5000/category/${category}`, {
-                    method: 'PUT',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify([...bookApi, bookCategories])
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        navigate('/dashboard/myproducts');
-                    })
-
-                    .catch(error => {
-                        setAddBookError(error.message);
-
-                    });
             })
-
             .catch(error => console.error(error));
+    }
+
+    if (isLoading) {
+        return <Loading></Loading>
     }
 
     return (
@@ -68,16 +99,16 @@ const AddProducts = () => {
                                 {
                                     required: "Book name is required"
                                 })}
-                                className="input input-bordered text-center mt-2 w-full" placeholder='Book Name' />
+                                className="input input-bordered text-center mt-2" placeholder='Book Name' />
                             {errors.bookname && <p className='text-red-500' role="alert">{errors.bookname?.message}</p>}
                         </div>
                         <div className="form-control w-full">
-                            <input type="text" {...register("sellersname",
-                                {
-                                    required: "Sellers name is required"
-                                })}
-                                className="input input-bordered text-center mt-2 w-full" placeholder='Sellers Name' />
-                            {errors.sellersname && <p className='text-red-500' role="alert">{errors.sellersname?.message}</p>}
+                            <input type="text" value={displayName}  {...register("sellersname")}
+                                className="input input-bordered text-center mt-2" />
+                        </div>
+                        <div className="form-control w-full">
+                            <input type="email" value={email} {...register("email")}
+                                className="input input-bordered text-center mt-2" />
                         </div>
 
                         <div className="form-control w-full">
@@ -85,7 +116,7 @@ const AddProducts = () => {
                                 {
                                     required: "Original Price is required"
                                 })}
-                                className="input input-bordered text-center mt-2 w-full" placeholder='Original Price' />
+                                className="input input-bordered text-center mt-2" placeholder='Original Price' />
                             {errors.originalprice && <p className='text-red-500' role="alert">{errors.originalprice?.message}</p>}
                         </div>
                         <div className="form-control w-full">
@@ -93,17 +124,16 @@ const AddProducts = () => {
                                 {
                                     required: "Resale Price is required"
                                 })}
-                                className="input input-bordered text-center mt-2 w-full" placeholder='Resale Price' />
+                                className="input input-bordered text-center mt-2" placeholder='Resale Price' />
                             {errors.resaleprice && <p className='text-red-500' role="alert">{errors.resaleprice?.message}</p>}
                         </div>
 
                         <div className="form-control w-full">
-                            <input type="text" {...register("conditiontype",
-                                {
-                                    required: "Condition type is required"
-                                })}
-                                className="input input-bordered text-center mt-2 w-full" placeholder='Condition Type' />
-                            {errors.conditiontype && <p className='text-red-500' role="alert">{errors.conditiontype?.message}</p>}
+                            <select {...register("conditiontype")} className="select input-bordered mt-2 text-center">
+                                <option defaultValue='Excsllent'>Excellent</option>
+                                <option>Good</option>
+                                <option>Fair</option>
+                            </select>
                         </div>
 
                         <div className="form-control w-full">
@@ -111,7 +141,7 @@ const AddProducts = () => {
                                 {
                                     required: "Mobile Number is required"
                                 })}
-                                className="input input-bordered text-center mt-2 w-full" placeholder='Mobile Number' />
+                                className="input input-bordered text-center mt-2" placeholder='Mobile Number' />
                             {errors.mobilenumber && <p className='text-red-500' role="alert">{errors.mobilenumber?.message}</p>}
                         </div>
 
@@ -120,17 +150,19 @@ const AddProducts = () => {
                                 {
                                     required: "Location is required"
                                 })}
-                                className="input input-bordered text-center mt-2 w-full" placeholder='Location' />
+                                className="input input-bordered text-center mt-2" placeholder='Location' />
                             {errors.location && <p className='text-red-500' role="alert">{errors.location?.message}</p>}
                         </div>
 
                         <div className="form-control w-full">
-                            <input type="text" {...register("category",
+                            <select {...register("category")} className="select input-bordered text-center">
                                 {
-                                    required: "Category is required"
-                                })}
-                                className="input input-bordered text-center mt-2 w-full" placeholder='Category' />
-                            {errors.category && <p className='text-red-500' role="alert">{errors.category?.message}</p>}
+                                    categoriesTitle.map(categoryTitle => <option
+                                        key={categoryTitle._id}
+                                        value={categoryTitle.categoryName}
+                                    >{categoryTitle.categoryName}</option>)
+                                }
+                            </select>
                         </div>
 
                         <div className="form-control w-full">
@@ -138,7 +170,7 @@ const AddProducts = () => {
                                 {
                                     required: "Description is required"
                                 })}
-                                className="input input-bordered text-center mt-2 w-full" placeholder='Description' />
+                                className="input input-bordered text-center mt-2" placeholder='Description' />
                             {errors.description && <p className='text-red-500' role="alert">{errors.description?.message}</p>}
                         </div>
 
@@ -147,8 +179,17 @@ const AddProducts = () => {
                                 {
                                     required: "Purchase Year is required"
                                 })}
-                                className="input input-bordered text-center mt-2 w-full" placeholder='Purchase Year' />
+                                className="input input-bordered text-center mt-2" placeholder='Purchase Year' />
                             {errors.purchaseyear && <p className='text-red-500' role="alert">{errors.purchaseyear?.message}</p>}
+                        </div>
+
+                        <div className="form-control w-full">
+                            <input type="file" {...register("bookImage",
+                                {
+                                    required: "Book photo is required"
+                                })}
+                                className="input input-bordered text-center mt-2" />
+                            {errors.bookImage && <p className='text-red-500' role="alert">{errors.bookImage?.message}</p>}
                         </div>
 
                         <input className='btn w-full mt-5' value='Add Book' type="submit" />

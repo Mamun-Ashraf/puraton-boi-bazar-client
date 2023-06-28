@@ -14,7 +14,7 @@ const BookCategories = () => {
             <div className='grid md:grid-cols-2 lg:grid-cols-3'>
                 {
                     bookCategories.map(bookCategory => <Categories
-                        key={bookCategories._id}
+                        key={bookCategory._id}
                         bookCategory={bookCategory}
                     ></Categories>)
                 }
