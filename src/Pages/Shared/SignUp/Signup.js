@@ -71,12 +71,12 @@ const Signup = () => {
     }
 
     return (
-        <div className='flex items-center'>
-            <div className='w-1/2'>
+        <div className='md:flex items-center'>
+            <div className='md:w-1/2'>
                 <img src={security} alt='' className='hidden md:block' />
             </div>
             <div className='h-[800px] flex justify-center items-center'>
-                <div className='w-96 p-7  bg-green-300 rounded'>
+                <div className='w-11/12 mx-auto md:w-96 p-7  bg-green-300 rounded'>
                     <h2 className='text-xl text-center'>Sign Up</h2>
                     <form onSubmit={handleSubmit(handleSignup)}>
                         <div className="form-control w-full">

@@ -21,7 +21,7 @@ const MyProducts = () => {
     }
 
     return (
-        <div className='grid grid-cols-3 gap-12'>
+        <div className='w-5/6 mx-auto md:w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12'>
 
             {
 
