@@ -4,12 +4,12 @@ import Categories from '../Categories/Categories';
 const BookCategories = () => {
     const [bookCategories, setBookCategories] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/category')
+        fetch('http://localhost:5000/categoryTitle')
             .then(res => res.json())
             .then(data => setBookCategories(data))
     }, [])
     return (
-        <div className='mb-8'>
+        <div className='mb-8 w-5/6 mx-auto md:w-full'>
             <h2 className='font-bold text-xl text-sky-500 mb-12'>Filter By Categories:</h2>
             <div className='grid md:grid-cols-2 lg:grid-cols-3'>
                 {

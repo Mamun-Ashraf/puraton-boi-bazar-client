@@ -1,16 +1,16 @@
 import React, { useContext } from 'react';
-import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../../Contexts/Authprovider';
 import Loading from '../../Shared/Loading/Loading';
+import { useQuery } from '@tanstack/react-query';
 
 const MyProducts = () => {
 
     const { user } = useContext(AuthContext);
 
-    const { data: myProducts = [], isLoading } = useForm({
+    const { data: myProducts = [], isLoading } = useQuery({
         queryKey: ['myProducts'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myProducts/${user.email}`);
+            const res = await fetch('http://localhost:5000/myProducts');
             const data = await res.json();
             return data;
         }
@@ -21,30 +21,35 @@ const MyProducts = () => {
     }
 
     return (
-        <div>
-            <h2 className="3xl">My Products</h2>
+        <div className='grid grid-cols-3 gap-12'>
 
             {
-                myProducts.map(myProduct => <div
-                    key={myProduct._id}
-                >
-                    <div className="card w-96 bg-base-100 shadow-xl">
-                        <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+
+                myProducts.map((myProduct, index) => {
+                    const myBooks = myProduct.categoryBooks;
+                    const displayedMyBooks = myBooks.filter(myBook => myBook.sellersEmail === user.email);
+                    return displayedMyBooks.map((displayedMyBook, index) => <div key={index} className="card card-compact bg-base-100 shadow-xl">
+                        <h2 className="card-title pl-5">Book Name : {displayedMyBook.bookName}</h2>
+                        <small className="font-bold pl-5 pb-5">Authors Name : {displayedMyBook.authorsName}</small>
+                        <figure><img src={displayedMyBook.bookImage} alt="" className='h-24' /></figure>
                         <div className="card-body">
-                            <h2 className="card-title">
-                                Shoes!
-                                <div className="badge badge-secondary">NEW</div>
-                            </h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
-                            <div className="card-actions justify-end">
-                                <div className="badge badge-outline">Fashion</div>
-                                <div className="badge badge-outline">Products</div>
+                            <div className=''>
+                                <p className='text-lg'><span className='text-lg font-bold'>Original Price :</span> ${displayedMyBook.originalPrice}</p>
+                                <p className='text-lg'><span className='text-lg font-bold'>Resale Price :</span> ${displayedMyBook.resalePrice}</p>
+                                <p className='text-lg'><span className='text-lg font-bold'>Book Condition :</span> {displayedMyBook.conditiontype}</p>
+                                <p className='text-lg'><span className='text-lg font-bold'>Years of Use :</span> {displayedMyBook.usingYears}</p>
+                            </div>
+                            <div className="card-actions justify-center">
+                                <label
+                                    htmlFor="buying-modal"
+                                    className="btn btn-error"
+                                // onClick={() => handleDeleteMyProduct(_id)}
+                                >Delete</label>
                             </div>
                         </div>
-                    </div>
-                </div>)
+                    </div>)
+                })
             }
-
         </div>
     );
 };

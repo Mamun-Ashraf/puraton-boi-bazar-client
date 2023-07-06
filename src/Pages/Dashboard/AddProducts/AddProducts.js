@@ -20,13 +20,14 @@ const AddProducts = () => {
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/categoryTitle');
             const data = await res.json();
+            console.log(data);
             return data;
         }
     })
 
     const handleAddBook = data => {
 
-        const { bookname, originalprice, resaleprice, conditiontype, mobilenumber, location, category, description, purchaseyear, sellersname, email } = data;
+        const { bookname, authorsname, originalprice, resaleprice, conditiontype, mobilenumber, location, category, description, purchaseyear, sellersname, email } = data;
 
         const image = data.bookImage[0];
         const formData = new FormData();
@@ -41,6 +42,7 @@ const AddProducts = () => {
                 if (imgData.success) {
                     const bookCategories = {
                         bookName: bookname,
+                        authorsName: authorsname,
                         bookImage: imgData.data.url,
                         sellersName: sellersname,
                         sellersEmail: email,
@@ -101,6 +103,14 @@ const AddProducts = () => {
                                 })}
                                 className="input input-bordered text-center mt-2" placeholder='Book Name' />
                             {errors.bookname && <p className='text-red-500' role="alert">{errors.bookname?.message}</p>}
+                        </div>
+                        <div className="form-control w-full">
+                            <input type="text" {...register("authorsname",
+                                {
+                                    required: "Authors name is required"
+                                })}
+                                className="input input-bordered text-center mt-2" placeholder='Authors Name' />
+                            {errors.authorname && <p className='text-red-500' role="alert">{errors.authorname?.message}</p>}
                         </div>
                         <div className="form-control w-full">
                             <input type="text" value={displayName}  {...register("sellersname")}
