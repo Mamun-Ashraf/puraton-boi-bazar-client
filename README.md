@@ -1,6 +1,6 @@
-adminEmail: mamun@ashraf.com
+# adminEmail: mamun@ashraf.com
 
-adminPassword: 123456
+# adminPassword: 123456
 
 # Getting Started with Create React App
 
