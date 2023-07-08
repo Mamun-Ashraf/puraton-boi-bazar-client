@@ -4,13 +4,20 @@ import { Link, useNavigate } from 'react-router-dom';
 import security from '../../../Assets/security.jpg';
 import { AuthContext } from '../../../Contexts/Authprovider';
 import { toast } from 'react-hot-toast';
+import useToken from '../../../Hooks/useToken';
 
 const Signup = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser, updateUser, signInWithGoogle, userType } = useContext(AuthContext);
     const [signupError, setSignupError] = useState('');
+    const [createdUserEmail, setCreatedUserEmail] = useState('');
 
+    const [token] = useToken(createdUserEmail);
     const navigate = useNavigate();
+
+    if (token) {
+        navigate('/');
+    }
 
     const handleSignup = data => {
         setSignupError('');
@@ -46,18 +53,7 @@ const Signup = () => {
         })
             .then(res => res.json())
             .then(data => {
-                getUserToken(email);
-            })
-    }
-
-    const getUserToken = email => {
-        fetch(`http://localhost:5000/jwt?email=${email}`)
-            .then(res => res.json())
-            .then(data => {
-                if (data.accessToken) {
-                    localStorage.setItem('accessToken', data.accessToken);
-                    navigate('/');
-                }
+                setCreatedUserEmail(email);
             })
     }
 
