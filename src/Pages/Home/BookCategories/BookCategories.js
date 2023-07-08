@@ -4,7 +4,7 @@ import Categories from '../Categories/Categories';
 const BookCategories = () => {
     const [bookCategories, setBookCategories] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/categoryTitle')
+        fetch('https://puraton-boi-bazar-server.vercel.app/categoryTitle')
             .then(res => res.json())
             .then(data => setBookCategories(data))
     }, [])

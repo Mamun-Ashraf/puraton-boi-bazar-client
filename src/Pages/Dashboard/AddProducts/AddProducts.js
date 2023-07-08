@@ -18,7 +18,7 @@ const AddProducts = () => {
     const { data: categoriesTitle = [], isLoading } = useQuery({
         queryKey: ['categoryTitle'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/categoryTitle');
+            const res = await fetch('https://puraton-boi-bazar-server.vercel.app/categoryTitle');
             const data = await res.json();
             console.log(data);
             return data;
@@ -55,11 +55,11 @@ const AddProducts = () => {
                         mobilenumber,
                         description
                     }
-                    fetch(`http://localhost:5000/categoryBook/${category}`)
+                    fetch(`https://puraton-boi-bazar-server.vercel.app/categoryBook/${category}`)
                         .then(res => res.json())
                         .then(result => {
                             const bookApi = result.categoryBooks;
-                            fetch(`http://localhost:5000/category/${category}`, {
+                            fetch(`https://puraton-boi-bazar-server.vercel.app/category/${category}`, {
                                 method: 'PUT',
                                 headers: {
                                     'content-type': 'application/json'

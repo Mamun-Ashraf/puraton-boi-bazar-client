@@ -7,14 +7,14 @@ const AllBuyers = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['userType'],
         queryFn: async () => {
-            const res = await fetch(' http://localhost:5000/users/allbuyers?userType=Buyer ');
+            const res = await fetch(' https://puraton-boi-bazar-server.vercel.app/users/allbuyers?userType=Buyer ');
             const data = await res.json();
             return data;
         }
     })
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://puraton-boi-bazar-server.vercel.app/users/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

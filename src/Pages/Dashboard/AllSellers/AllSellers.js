@@ -7,7 +7,7 @@ const AllSellers = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['userType'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users/allsellers?userType=Seller');
+            const res = await fetch('https://puraton-boi-bazar-server.vercel.app/users/allsellers?userType=Seller');
             const data = await res.json();
             return data;
         }
@@ -15,7 +15,7 @@ const AllSellers = () => {
     console.log(users);
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://puraton-boi-bazar-server.vercel.app/users/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -27,7 +27,7 @@ const AllSellers = () => {
             })
     }
     const handleVerify = id => {
-        fetch(`http://localhost:5000/users/allsellers/${id}`, {
+        fetch(`https://puraton-boi-bazar-server.vercel.app/users/allsellers/${id}`, {
             method: 'PUT'
         })
             .then(res => res.json())

@@ -33,7 +33,7 @@ const router = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <PrivateRoutes><Books></Books></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://puraton-boi-bazar-server.vercel.app/category/${params.id}`)
             },
             {
                 path: '/blog',
@@ -68,7 +68,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/myproducts',
                 element: <SellersRoute><MyProducts></MyProducts></SellersRoute>
-                // loader: () => fetch('http://localhost:5000/myProducts')
+                // loader: () => fetch('https://puraton-boi-bazar-server.vercel.app/myProducts')
             },
             {
                 path: '/dashboard/mybuyers',

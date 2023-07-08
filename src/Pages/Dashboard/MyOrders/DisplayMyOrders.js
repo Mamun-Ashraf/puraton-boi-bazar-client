@@ -4,7 +4,7 @@ const DisplayMyOrders = ({ myOrder }) => {
     const { _id, bookName, authorsName, bookImage, price } = myOrder;
 
     const handleDeleteMyOrder = (id) => {
-        fetch(`http://localhost:5000/myOrders/${id}`, {
+        fetch(`https://puraton-boi-bazar-server.vercel.app/myOrders/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

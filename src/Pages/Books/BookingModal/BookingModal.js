@@ -32,7 +32,7 @@ const BookingModal = ({ bookItems, setBookItems }) => {
         console.log(bookings);
         setBookItems(null);
         toast.success('booking confirmed')
-        fetch('http://localhost:5000/myOrders', {
+        fetch('https://puraton-boi-bazar-server.vercel.app/myOrders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
